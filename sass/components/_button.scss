@@ -1,0 +1,122 @@
+/* Button Element */
+
+.btn {
+  /* When Btn is Active and Visited */
+  &,
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.4s;
+    position: relative;
+    font-size: $default-font-size;
+
+    //Change for  the <button> element
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  /* The Underground of Button */
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 10rem;
+
+    /* I Think the Display of
+        the Button is Inherited tho
+         */
+    display: inline-block;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    transition: all 0.6s;
+  }
+  /* When Hovering on Btn */
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    /* The Underground of Button when Hover */
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  /* When Clicking on Btn */
+  &:active,
+  &:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 1rem rgba($color-black, 0.2);
+
+    //Change for  the <button> element
+    outline: none;
+  }
+
+  /* Green Header Btn */
+  &--green {
+    color: $color-white;
+    background-color: $color-primary;
+
+    /* The Green Underground of Button  */
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
+  /* White Header Btn */
+  &--white {
+    color: $color-gray-dark;
+    background-color: $color-white;
+
+    /* The White Underground of Button  */
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  /* Animated White Button */
+  &--animated {
+    /* Animation Usage */
+    -webkit-animation: moveInBottom 0.5s ease-in-out 0.75s;
+    animation: moveInBottom 0.5s ease-in-out 0.75s;
+    -webkit-animation-fill-mode: backwards;
+    animation-fill-mode: backwards;
+  }
+}
+
+.btn-text {
+  &,
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    padding: 4px;
+    border-bottom: 1px solid $color-primary;
+    transition: all 0.4s;
+    padding: 1rem;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    transform: translateY(-2px);
+    border-radius: $border-radius;
+  }
+
+  &:active {
+    box-shadow: 0 5px 1rem rgba($color-black, 0.2);
+    transform: translateY(1px);
+  }
+}
